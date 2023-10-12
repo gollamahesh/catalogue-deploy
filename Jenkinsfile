@@ -1,5 +1,8 @@
 pipeline {
     agent { node { label 'agent-1' } }
+    parameters{
+        string(name: 'version', defaultValue: '1.0.1', description: 'which verion to deploy')
+    }
     // global access
     environment{
         packageVersion = ''
@@ -8,8 +11,10 @@ pipeline {
         // this job will wait until downstream job is over
         stage('Deploy') {
             steps {
-                echo "Deployment"
-                build job: "../catalogue-deploy", wait:true
+                echo "deploying"
+                echo "version from parameters: ${param.version}"
+                
+                
             }
         }
     }
