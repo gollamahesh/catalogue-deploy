@@ -5,9 +5,11 @@ pipeline {
         packageVersion = ''
     }
     stages {
+        // this job will wait until downstream job is over
         stage('Deploy') {
             steps {
                 echo "Deployment"
+                build job: "../catalogue-deploy", wait:true
             }
         }
     }
