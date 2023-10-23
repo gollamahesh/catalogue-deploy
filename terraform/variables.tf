@@ -17,3 +17,8 @@ variable "tags" {
 variable "env" {
   default = "dev"
 }
+
+variable "app_version" {
+  default = "1.0.0"
+  
+}
