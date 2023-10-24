@@ -3,16 +3,16 @@ pipeline {
     parameters{
         string(name: 'version', defaultValue: '1.0.1', description: 'which verion to deploy')
     }
-    // global access
-    environment{
-        packageVersion = ''
-    }
+    // // global access
+    // environment{
+    //     packageVersion = ''
+    // }
     stages {
         // this job will wait until downstream job is over
         stage('Deploy') {
             steps {
                 echo "deploying"
-                echo "version from parameters: ${param.version}"
+                echo "version from parameters: ${params.version}"
                 
                 
             }
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 sh """
                     cd terraform
-                    terraform plan -var="appversion=${param.version}"
+                    terraform plan -var="appversion=${params.version}"
                 """   
             }
         }
