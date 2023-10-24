@@ -1,5 +1,5 @@
 pipeline {
-    agent { node { label 'agent-1' } }
+    agent { node { label 'AGENT-1' } }
     parameters{
         string(name: 'version', defaultValue: '1.0.1', description: 'which verion to deploy')
     }
